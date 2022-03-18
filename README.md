@@ -1,4 +1,4 @@
-# ESP32 DEBUGGING WITH JLINK USING OPENOCD
+# ESP32 DEBUGGING WITH JLINK (USING OPENOCD) OVER JTAG INTERFACE
 
 In this project it's described how to set up a debugging environment for your esp32 on vscode and most important thing with a JLINK!!!
 This example tested with examples/cxx/pthread example in esp-idf sdk.
@@ -8,21 +8,26 @@ This project is generated combination of these two reference
 
 2.https://www.youtube.com/watch?v=uq93H7T7cOQ&t=8s&ab_channel=YuriR
 
-
 ## Configuration
+
 Required Tools
+
 - Vscode and Espressif IDF Extension
 - ESP-IDF must be already installed on your computer and perfoming on vscode with no problem.
+
 ### Hardware Connections
+
 ![](./image/README/Debug-Help-ESP32-JTAG-Connections.png)
-### Install WinUSB to Jlink Driver 
+
+### Install WinUSB to Jlink Driver
 
 Please follow first and use https://visualgdb.com/UsbDriverTool/ tool and install WinUSB driver to Jlink
 
 ### OpenOCD Configuration
+
 C:\Users\\%USERNAME%\\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210401\openocd-esp32\share\openocd\scripts\board\
 
-In this location pick your board cfg file. 
+In this location pick your board cfg file.
 
 In this case it was esp32-wroom-32.cfg
 
@@ -46,9 +51,9 @@ C:\Users\\%USERNAME%\\.espressif\tools\openocd-esp32\v0.10.0-esp32-20210401\open
 
 Copy paste files under .vscode folder into your project under .vscode folder
 
-- launch.json
-- tasks.json
-- c_cpp_properties.json
+- [ ] launch.json
+- [ ] tasks.json
+- [ ] c_cpp_properties.json
 
 ## Starting Debugging
 
@@ -61,6 +66,7 @@ In run and debug section, it will appear these 3 options
 You can perform combinations of Debugging, Building, Flashing
 
 ### Output
+
 ```
 Open On-Chip Debugger  v0.10.0-esp32-20210401 (2021-04-01-15:46)
 Licensed under GNU GPL v2
@@ -189,8 +195,9 @@ Info : esp32.cpu1: Target halted, PC=0x400DB2AD, debug_reason=00000000
 ## NOTE
 
 - Be careful in launch.json file in your esp32 project, bin and elf file must be generated with your project folder name. Otherwise it must be changed the .elf and .bin files' name in launch.json file
-For example;
-~~~
+  For example;
+
+```
         {
             "preLaunchTask": "Build+GDB Server ESP32",
             "name": " ESP32 Build + OpenOCD Flash + Debug",
@@ -211,12 +218,13 @@ For example;
                 { "text": "flushregs" }
             ]
         },
-~~~
+```
 
 - -c \"set ESP_RTOS none\" flag for openocd is needed for debugging not to be fragile
 - Without this flag, debugging session doesn't start couple times you have to try and when it starts it has a benefit as showing Threads running.
 - You can change this in tasks.json file in that sections;
-~~~
+
+```
         {
             "label": "OpenOCD: Start JTAG openOCD over JLINK",
             "type": "shell",
@@ -253,4 +261,4 @@ For example;
                 }
             }
         },
-~~~
+```
