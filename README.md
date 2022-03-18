@@ -18,6 +18,9 @@ Required Tools
 ### Hardware Connections
 
 ![](./image/README/Debug-Help-ESP32-JTAG-Connections.png)
+![](./image/README/20220318_120954.jpg)
+![](./image/README/20220318_121005.jpg)
+
 
 ### Install WinUSB to Jlink Driver
 
