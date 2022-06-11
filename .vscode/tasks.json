@@ -7,7 +7,7 @@
             "label": "Pre-Run GDB Session",
             "type": "shell",
             "windows":{
-                "command": "clear & start C:/Users/kenanoglu/.espressif/tools/openocd-esp32/v0.10.0-esp32-20210401/openocd-esp32/bin/openocd.exe -c \"set ESP_RTOS none\" -f interface/jlink.cfg -f board/esp-wroom-32-modified.cfg"
+                "command": "C:/Users/${env:USERNAME}/.espressif/tools/openocd-esp32/v0.11.0-esp32-20211220/openocd-esp32/bin/openocd.exe -c \"set ESP_RTOS none\" -f interface/jlink.cfg -f board/esp-wroom-32-modified.cfg"
             },
             "presentation": {
                 "echo": true,
@@ -27,9 +27,9 @@
                 "focus": false,
                 "panel": "new"
             },
-            "command": "clear & start openocd -c \"set ESP_RTOS none\" -f interface/jlink.cfg -f board/esp-wroom-32-modified.cfg", // -s ${command:espIdf.getOpenOcdScriptValue} ${command:espIdf.getOpenOcdConfigs}
+            "command": "openocd -c \"set ESP_RTOS none\" -f interface/jlink.cfg -f board/esp-wroom-32-modified.cfg", // -s ${command:espIdf.getOpenOcdScriptValue} ${command:espIdf.getOpenOcdConfigs}
             "windows": {
-                "command": "clear & start openocd.exe -c \"set ESP_RTOS none\" -f interface/jlink.cfg -f board/esp-wroom-32-modified.cfg", //${command:espIdf.getOpenOcdScriptValue}/esp-wroom-32-modified.cfg ${command:espIdf.getOpenOcdConfigs}
+                "command": "openocd.exe -c \"set ESP_RTOS none\" -f interface/jlink.cfg -f board/esp-wroom-32-modified.cfg", //${command:espIdf.getOpenOcdScriptValue}/esp-wroom-32-modified.cfg ${command:espIdf.getOpenOcdConfigs}
                 "options": {
                     "env": {
                         "PATH": "${env:PATH};${config:idf.customExtraPaths}"
